@@ -77,7 +77,7 @@ if __name__ == "__main__":
     for file in tqdm(file_list):
         input_file = os.path.join(input_data_dir, file)
         output_file = os.path.join(output_data_dir, f"{file.split('.')[0]}.png")
-        cmd = f"{bin_dir} -i {input_file} -o {output_file} -m {model_version} -s {args.scale} -n {args.noise} -t {args.tilesize}"
+        cmd = f'{bin_dir} -i "{input_file}" -o "{output_file}" -m "{model_version}" -s "{args.scale}" -n "{args.noise}" -t "{args.tilesize}"'
         if args.tta:
             cmd = cmd + " -x"
         run(cmd, shell=True, stdin=DEVNULL, stdout=DEVNULL, stderr=DEVNULL)
